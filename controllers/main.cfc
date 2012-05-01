@@ -40,7 +40,7 @@ component
 		catch(any ex) {
 			local.response = StructNew();
 			local.response.type = "error";
-			local.response.message = "Something went wrong...";
+			local.response.message = "Something went wrong... #ex.message#";
 			local.response.progress = "0%";
 			WSPublish(rc.channel,local.response);
 			WriteLog(type="Error", file="myapp", text="[#ex.type#] #ex.message# #ex.detail#"); 
@@ -128,7 +128,7 @@ component
 		catch(any ex) {
 			local.response = StructNew();
 			local.response.type = "error";
-			local.response.message = "Something went wrong...";
+			local.response.message = "Something went wrong... #ex.message#";
 			local.response.progress = "0%";
 			WSSendMessage(serializeJSON(local.response));
 			WriteLog(type="Error", file="myapp", text="[#ex.type#] #ex.message# #ex.detail#"); 
