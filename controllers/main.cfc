@@ -24,12 +24,6 @@ component
 	{
 		try {
 			local.file = fileUpload(ExpandPath('repository/'), "file", "application/pdf", "MakeUnique", true);
-
-			savecontent variable="local.testDump" {
-				writeDump(form, 'browser', 'text');
-			}
-
-			WriteLog(type="Warning", file="myapp", text="#local.testDump#");
 			
 			local.response = StructNew();
 			local.response.type = "status";
@@ -43,7 +37,6 @@ component
 			local.response.message = "Something went wrong... #ex.message#";
 			local.response.progress = "0%";
 			WSPublish(rc.channel,local.response);
-			WriteLog(type="Error", file="myapp", text="[#ex.type#] #ex.message# #ex.detail#"); 
 		}
 	}
 	
@@ -131,7 +124,6 @@ component
 			local.response.message = "Something went wrong... #ex.message#";
 			local.response.progress = "0%";
 			WSSendMessage(serializeJSON(local.response));
-			WriteLog(type="Error", file="myapp", text="[#ex.type#] #ex.message# #ex.detail#"); 
 		}
 	}
 	
