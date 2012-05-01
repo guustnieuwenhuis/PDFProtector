@@ -99,7 +99,6 @@
 	        $("#protectProgress").addClass("progress-striped");
 	        protect.invoke('controllers.main', 'getMsg', [$('#file').val(), $('#addWatermark').val(), $('#addFooter').val(), $('#footerName').val()]);
 	    });
-		$("#footerDetails").hide();
 	});
 	function onMessageHandler(messageObject){
 	    //JavaScript messageobject is converted to a string. 
