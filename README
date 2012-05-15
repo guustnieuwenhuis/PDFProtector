@@ -1,0 +1,4 @@
+
+Installation instructions:
+
+- update the "application.pathToPDFProtector" value on line 28 of the Application.cfc to point to the folder where you've installed PDFProtector

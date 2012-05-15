@@ -47,6 +47,10 @@ component
 			local.filename = local.UUID & ".pdf";
 			local.filePath = ExpandPath('../temp/#local.filename#');
 			local.pdf = new pdf();
+			
+			if(!DirectoryExists(ExpandPath('../temp'))) {
+				DirectoryCreate(ExpandPath('../temp'));
+			}
 
 			fileCopy(ExpandPath('../repository/#arguments.file#'),local.filePath);
 			
@@ -102,7 +106,7 @@ component
 				local.response.progress = "85%";
 				WSSendMessage(local.response);
 			}
-			
+
 			local.pdf.thumbnail(source=local.filepath, format="png", pages="1", destination=ExpandPath('../temp/thumb-#local.UUID#/'));
 
 			local.response = StructNew();

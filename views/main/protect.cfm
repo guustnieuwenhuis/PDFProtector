@@ -104,7 +104,7 @@
 	    //JavaScript messageobject is converted to a string. 
 	    var message = messageObject;
 	    if (message.type == "data") {
-	        var msg = $.parseJSON(message.data);
+	        var msg = message.data;
 	        $("#protectProgressBar").width(msg.PROGRESS);
 	        var txt = $("#statusoverview").html();
 	        switch (msg.TYPE) {
